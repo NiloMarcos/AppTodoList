@@ -12,6 +12,12 @@ export default function Home() {
     setTask(null);
   }
 
+  const completeTask = (index) => {
+    let itemsCopy = [...taskItems];
+    itemsCopy.splice(index, 1);
+    setTaskItem(itemsCopy);
+  }
+
   return(
     <View style={styles.container}>
 
@@ -21,12 +27,13 @@ export default function Home() {
         <View style={styles.items}>
           {
             taskItems.map((item, index) => {
-              return <Tasks title={item} key={index}/>
+              return(
+                <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+                  <Tasks title={item} />
+                </TouchableOpacity>
+              )
             })
           }
-          {/* <Tasks title="Tasks - 1" />
-          <Tasks title="Tasks - 2" />
-          <Tasks title="Tasks - 3" /> */}
         </View>
       </View>
 
