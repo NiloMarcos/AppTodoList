@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Text, View, StyleSheet, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, Keyboard } from 'react-native';
 import Tasks from '../../components/Tasks';
 
 export default function Home() {
@@ -7,7 +7,9 @@ export default function Home() {
   const [taskItems, setTaskItem] = useState([]);
 
   const handleAddTask = () => {
+    Keyboard.dismiss();
     setTaskItem([...taskItems, task]);
+    setTask(null);
   }
 
   return(
@@ -17,9 +19,14 @@ export default function Home() {
         <Text style={styles.sectionTitle}>Today`s Tasks</Text>
 
         <View style={styles.items}>
-          <Tasks title="Tasks - 1" />
+          {
+            taskItems.map((item, index) => {
+              return <Tasks title={item} key={index}/>
+            })
+          }
+          {/* <Tasks title="Tasks - 1" />
           <Tasks title="Tasks - 2" />
-          <Tasks title="Tasks - 3" />
+          <Tasks title="Tasks - 3" /> */}
         </View>
       </View>
 
