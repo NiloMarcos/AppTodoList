@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-
+import Tasks from '../../components/Tasks';
 
 export default function Home() {
   return(
@@ -10,7 +10,9 @@ export default function Home() {
         <Text style={styles.sectionTitle}>Today`s Tasks</Text>
 
         <View style={styles.items}>
-
+          <Tasks title="Tasks - 1" />
+          <Tasks title="Tasks - 2" />
+          <Tasks title="Tasks - 3" />
         </View>
       </View>
 

@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function Tasks() {
+export default function Tasks({ title }) {
   return(
     <View>
-      <Text>This is a Task</Text>
+      <Text>{title}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    
+
   },
 });
