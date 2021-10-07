@@ -9,7 +9,7 @@ export default function Tasks({ title }) {
         <Text style={styles.itemText}>{title}</Text>
       </View>
 
-      <View style={styles.circular}></View>
+      <TouchableOpacity style={styles.circular}></TouchableOpacity>
     </View>
   );
 }
